@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'blogtest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'blogtest',
-        'HOST': '150.158.12.193',
-        'PASSWORD': '123456',
-        'USER': 'test',
+        'NAME': '',
+        'HOST': '',
+        'PASSWORD': '',
+        'USER': '',
         'PORT': '3306'
     }
 }
@@ -145,7 +145,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 EMAIL_HOST = 'smtp.126.com'  # 用于发送电子邮件的主机。
-EMAIL_HOST_USER = "guishoushi126@126.com"  # 自己的邮箱地址
-EMAIL_HOST_PASSWORD = "zten880"  # 自己的邮箱密码
+EMAIL_HOST_USER = "@126.com"  # 自己的邮箱地址
+EMAIL_HOST_PASSWORD = ""  # 自己的邮箱密码
 EMAIL_PORT = 465  # 用于中定义的SMTP服务器的端口
 EMAIL_USE_SSL = True  # 是否使用隐式的安全连接
