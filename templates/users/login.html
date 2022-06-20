@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'plugin/bootstrap-4.6.1/css/bootstrap.min.css' %}" crossorigin="anonymous">
+    <title>{% block title %}用户登录{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">DjangoBlog</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">首页</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">最新</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">分类</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="请输入搜索内容：" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+<div class="container">
+    {% block main %}
+        <form action="" method="post" style="margin-top: 15%">
+            {% for i in form %}
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputText">{{ i.label }}：</label>
+                    {{ i }}
+                    <span style="color: red">{{ i.errors }}</span>
+                    <span style="color: red">{{ error }}</span>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">登录</button>
+        </form>
+
+
+    {% endblock %}
+
+
+</div>
+
+<script src="{% static 'plugin/bootstrap-4.6.1/js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
